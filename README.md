@@ -19,25 +19,29 @@ rack
 
 Basic usage with bundler.
 
-    application "my-app" do
-      path "..."
-      repository "..."
-      revision "..."
+```{ruby}
+application "my-app" do
+  path "..."
+  repository "..."
+  revision "..."
 
-      rack do
-        gems ['bundler']
-      end
-    end
+  rack do
+    gems ['bundler']
+  end
+end
+```
 
 You can specify custom bundler and gem commands if needed. This example uses the jruby cookbook to specify these paths.
 
-    application "my-app" do
-      path "..."
-      repository "..."
-      revision "..."
+```{ruby}
+application "my-app" do
+  path "..."
+  repository "..."
+  revision "..."
 
-      rack do
-        gems [['bundler', {'gem_binary' => "#{node[:jruby][:install_path]}/bin/gem"}]]
-        bundle_command "#{node[:jruby][:install_path]}/bin/bundle"
-      end
-    end
+  rack do
+    gems [['bundler', {'gem_binary' => "#{node[:jruby][:install_path]}/bin/gem"}]]
+    bundle_command "#{node[:jruby][:install_path]}/bin/bundle"
+  end
+end
+```
